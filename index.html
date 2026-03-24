@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>Wind Animation</title>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.46/esri/css/esri.css">
 
     <style>
       html,body {
@@ -36,12 +36,12 @@
     <script>
       var dojoConfig = {
         paths: {
-          plugins: location.pathname.replace(/\/[^/]+$/, "") + "/plugins"
+          plugins: location.origin + location.pathname.replace(/\/[^/]+$/, "") + "/plugins"
         }
       };
     </script>
     <script src="./windy.js"></script>
-    <script src="https://js.arcgis.com/3.20compact/"></script>
+    <script src="https://js.arcgis.com/3.46/"></script>
     <script>
       var map, rasterLayer;
       var canvasSupport;
