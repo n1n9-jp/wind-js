@@ -1,0 +1,38 @@
+name: Update GFS Wind Data
+
+on:
+  schedule:
+    # GFS cycles + ~4h delay + 20min offset to avoid congestion
+    - cron: "20 4,10,16,22 * * *"  # UTC
+  workflow_dispatch:  # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install eccodes
+
+      - name: Fetch and convert GFS data
+        run: python scripts/fetch_gfs.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gfs.json
+          if git diff --cached --quiet; then
+            echo "No changes to gfs.json"
+          else
+            git commit -m "Update GFS wind data $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
