@@ -1,21 +1,21 @@
 # Wind-JS
 
-Check out the live [demo](http://esri.github.io/wind-js/)
+ライブ[デモ](http://esri.github.io/wind-js/)をご覧ください
 
 ![Wind JS](https://f.cloud.github.com/assets/351164/2349895/36ba1c9a-a569-11e3-859d-5d753ea0898c.jpeg)
 
 
-This project is an experiment in client-side data processing and visualization. Most of the code in this project is taken from https://github.com/cambecc/earth and has been re-purposed to support easier application to a variety of mapping APIs and Frameworks.
+このプロジェクトは、クライアントサイドでのデータ処理と可視化の実験です。このプロジェクトのコードの大部分は https://github.com/cambecc/earth から取得したもので、さまざまなマッピングAPIやフレームワークへの適用を容易にするために再構成されています。
 
-## How it works
+## 仕組み
 
-The code for this project uses nothing but an HTML5 Canvas element and pure Javascript. The data come from the Global Forecast System which produces a large variety of datasets as continuous global gridded datasets (more info below). The data is passed into a JS class called `Windy` which takes the bounds of the map, the data, and the canvas element and then applies a [Bilinear Interpolation](http://en.wikipedia.org/wiki/Bilinear_interpolation) to generate a smooth surface. Once the surface has been generated a function randomly places "particles" onto the canvas at random x/y points. Each particle is then "evolved", moving in a direction and at a velocity dictated by the interpolated surface.
+このプロジェクトのコードは、HTML5 Canvas要素と純粋なJavascriptのみを使用しています。データは、連続的なグローバルグリッドデータセットとして多種多様なデータセットを生成するGlobal Forecast System（全球予報システム）から取得されます（詳細は下記参照）。データは`Windy`というJSクラスに渡され、地図の境界、データ、Canvas要素を受け取り、[双線形補間](http://en.wikipedia.org/wiki/Bilinear_interpolation)を適用して滑らかなサーフェスを生成します。サーフェスが生成されると、関数がランダムなx/y座標にCanvas上へ「パーティクル」をランダムに配置します。各パーティクルは補間されたサーフェスによって決定される方向と速度で移動し、「進化」していきます。
 
-## The Data
+## データ
 
-Before [GFS data](http://nomads.ncdc.noaa.gov/data.php?name=access#hires_weather_datasets) can be used with this code it has to be converted into JSON. To do this we used another awesome project by [@cambecc](https://github.com/cambecc) called [`grib2json`](https://github.com/cambecc/grib2json). That tool converts data in the GRIB2 file format into a JSON structure with the grid represented as an array. An example result of that tool can be seen in the `gfs.json` file.
+[GFSデータ](http://nomads.ncdc.noaa.gov/data.php?name=access#hires_weather_datasets)をこのコードで使用する前に、JSONに変換する必要があります。そのために、[@cambecc](https://github.com/cambecc)氏による[`grib2json`](https://github.com/cambecc/grib2json)という素晴らしいプロジェクトを使用しました。このツールはGRIB2ファイル形式のデータを、グリッドを配列として表現したJSON構造に変換します。このツールの出力例は`gfs.json`ファイルで確認できます。
 
-## Resources
+## リソース
 
 * https://github.com/cambecc/earth
 * http://earth.nullschool.net/
@@ -23,20 +23,20 @@ Before [GFS data](http://nomads.ncdc.noaa.gov/data.php?name=access#hires_weather
 * http://developers.arcgis.com
 * [twitter@esri](http://twitter.com/esri)
 
-## Issues
+## 問題の報告
 
-Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+バグを発見した場合や新機能のリクエストがある場合は、Issueを作成してお知らせください。
 
-## Contributing
+## コントリビューション
 
-Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Esriはどなたからのコントリビューションも歓迎します。[コントリビューションガイドライン](https://github.com/esri/contributing)をご参照ください。
 
-## Credit
+## クレジット
 
-All the credit for this work goes to [@cambecc](https://github.com/cambecc) for creating [cambecc/earth](https://github.com/cambecc/earth). The majority of this code is directly taken from there, since it's utterly awesome.
+この成果のすべての功績は、[cambecc/earth](https://github.com/cambecc/earth)を作成した[@cambecc](https://github.com/cambecc)氏に帰属します。このコードの大部分はそのプロジェクトから直接取得したものであり、非常に素晴らしい作品です。
 
-## Licensing
+## ライセンス
 
-This project inherits an MIT license from [cambecc/earth](https://github.com/cambecc/earth) because 95% of the code here was copied from that project.
+このプロジェクトは、コードの95%が[cambecc/earth](https://github.com/cambecc/earth)からコピーされているため、同プロジェクトのMITライセンスを継承しています。
 
-A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/wind-js/master/license.txt) file.
+ライセンスのコピーはリポジトリの[license.txt]( https://raw.github.com/Esri/wind-js/master/license.txt)ファイルにあります。
